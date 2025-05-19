@@ -1,78 +1,89 @@
-# Nearby Location Finder
+## Nearby Mental Health Resource Finder
+Project Description
+This web application helps users find nearby mental health resources, specifically psychotherapists, using the user's current location. It integrates OpenStreetMap's map interface with backend data served from a Supabase database. Users can view mental health resources near them and add new resources to the database. The app dynamically expands its search radius until it finds at least one resource.
 
-A web application that helps users find nearby locations based on descriptions like “park,” “restaurant,” or “pharmacy” using real-time data from OpenStreetMap.
+# The system consists of:
 
-## Project Description
+A front-end that displays an interactive map with nearby mental health resources.
 
-**Nearby Location Finder** allows users to search for places of interest near them by simply entering descriptive keywords. It utilizes OpenStreetMap and Overpass API to retrieve relevant geographic data and displays it interactively with Leaflet.js. Designed with simplicity in mind, the app features auto-location detection and a clean, responsive interface for use across devices.
+A backend API connected to a Supabase database with two endpoints:
 
-## Features
+GET /api/resources — Retrieves all mental health resources.
 
-- Real-time location search using OpenStreetMap data
-- Interactive map display using Leaflet.js
-- Automatic user location detection
-- Clean and modern user interface
-- Responsive design
-- Click-to-view location details
+POST /api/add-resource — Adds a new resource to the database.
 
-## Target Browsers and Platforms
+# Target Browsers
+Desktop browsers: Latest versions of Chrome, Firefox, Edge, Safari.
 
-This web app is designed to function smoothly on both desktop and mobile browsers:
+Mobile browsers: iOS Safari, Android Chrome.
 
-- **Mobile**: iOS (Safari, Chrome), Android (Chrome, Firefox)
-- **Desktop**: Chrome, Firefox, Safari, Edge
+The app uses HTML5 Geolocation API, so browsers must support this feature.
 
-## Link to Developer Manual
+Responsive design intended for desktop and mobile screen sizes.
 
-You are currently reading the Developer Manual. This document contains all technical details necessary for future development and maintenance.
+## Developer Manual
 
----
-# Developer Manual
+# Setup and Installation
 
-Welcome to the Nearby Location Finder project! This manual is intended for developers who are taking over the project. You are expected to have general knowledge of web development, but no prior knowledge of this system is required.
+1. **Clone the repository:**
 
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) (v12 or higher)
-- npm (comes with Node.js)
-
-## Installation Guide
-
-To set up this application on your local machine:
-
-1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/nearby-location-finder.git
-   cd nearby-location-finder
+   git clone https://your-repository-url.git
+   cd your-project-folder
+   
+2. **Instal Backend Dependencies**
+   cd backend
+npm install
 
-## Usage
+3. **Configure environment variables:**
+   SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-service-role-key
+PORT=3000
 
-1. Start the server:
-```bash
-npm start
-```
+4. **Setup Supabase database:**
+Create a table named mental_health_resources with the following columns:
+- id (primary key, auto-increment integer)
+- name (text)
+- latitude (float)
+- longitude (float)
+- type (text)
 
-2. Open your web browser and navigate to `http://localhost:3000`
+5. **Start the Backend Server:**
+   npm start
 
-3. Allow location access when prompted
+6. **Open the frontend:**
+The frontend is a static HTML and JavaScript app located in the root folder. You can:
 
-4. Enter a description of the type of location you're looking for (e.g., "restaurant", "park", "cafe")
+Open index.html directly in your browser, or
 
-5. Click "Search" or press Enter to find nearby locations matching your description
+Serve it using any static file server (e.g., VSCode Live Server, http-server, etc.)
 
-## Development
+## API Endpoints
+GET /api/resources
+Returns a JSON array of all mental health resources from the database.
 
-To run the application in development mode with auto-reload:
+Each resource object includes:
+   -id — integer
+   -name — string
+   -latitude — float
+   -longitude — float
+   -type — string
 
-```bash
-npm run dev
-```
+## POST
+Adds a new mental health resource to the database.
 
-## Technologies Used
+Expects JSON request body:
 
-- Node.js
-- Express.js
-- OpenStreetMap & Overpass API
-- Leaflet.js
-- HTML5 Geolocation API
+json
+Copy
+Edit
+{
+  "name": "Resource Name",
+  "latitude": 38.8951,
+  "longitude": -77.0364,
+}
 
+## Known Bugs and Roadmap
+- No input validation or authentication on the POST endpoint.
+- No offline map support.
+- Lack of automated tests.
