@@ -1,6 +1,10 @@
 # Nearby Location Finder
 
-A web application that helps users find nearby locations based on their descriptions using OpenStreetMap data.
+A web application that helps users find nearby locations based on descriptions like “park,” “restaurant,” or “pharmacy” using real-time data from OpenStreetMap.
+
+## Project Description
+
+**Nearby Location Finder** allows users to search for places of interest near them by simply entering descriptive keywords. It utilizes OpenStreetMap and Overpass API to retrieve relevant geographic data and displays it interactively with Leaflet.js. Designed with simplicity in mind, the app features auto-location detection and a clean, responsive interface for use across devices.
 
 ## Features
 
@@ -11,19 +15,35 @@ A web application that helps users find nearby locations based on their descript
 - Responsive design
 - Click-to-view location details
 
+## Target Browsers and Platforms
+
+This web app is designed to function smoothly on both desktop and mobile browsers:
+
+- **Mobile**: iOS (Safari, Chrome), Android (Chrome, Firefox)
+- **Desktop**: Chrome, Firefox, Safari, Edge
+
+## Link to Developer Manual
+
+You are currently reading the Developer Manual. This document contains all technical details necessary for future development and maintenance.
+
+---
+# Developer Manual
+
+Welcome to the Nearby Location Finder project! This manual is intended for developers who are taking over the project. You are expected to have general knowledge of web development, but no prior knowledge of this system is required.
+
 ## Prerequisites
 
-- Node.js (v12 or higher)
-- npm (Node Package Manager)
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- npm (comes with Node.js)
 
-## Installation
+## Installation Guide
 
-1. Clone this repository or download the files
-2. Navigate to the project directory
-3. Install dependencies:
-```bash
-npm install
-```
+To set up this application on your local machine:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/nearby-location-finder.git
+   cd nearby-location-finder
 
 ## Usage
 
@@ -56,6 +76,3 @@ npm run dev
 - Leaflet.js
 - HTML5 Geolocation API
 
-## License
-
-MIT 
